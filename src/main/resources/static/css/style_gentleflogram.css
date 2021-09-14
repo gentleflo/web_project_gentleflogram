@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 1200px;
+	height: 650px;
+	margin: auto;
+}
+
+section {
+	height: 700px;
+	font-family: "Gill Sans", sans-serif;
+	font-size: 14px;
+}
+
+.login-box {
+	width:340px;
+	border: solid 2px #dedede;
+}
+.input-style {
+	background-color: #F9FBFC;
+}
+
+.main-logo {
+	font-family: cursive;
+}
+
+.signup-box {
+	width: 340px;
+	height: 60px;
+	border: solid 2px #dedede;
+}
+
+footer {
+	height: 50px;
+}
+.language {
+	font-size: 12px;
+}
