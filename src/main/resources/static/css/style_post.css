@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 1200px;
+	margin: auto;
+}
+
+header {
+	height: 70px;
+}
+.main-logo {
+	font-family: cursive;
+}
+.top-menu {
+	width: 900px;
+	margin: auto;
+}
+
+input::-webkit-input-placeholder{
+  text-align:center;
+}
+
+.profile-section {
+	width: 500px;
+	height: 110px;
+	margin: auto;
+}
+.profile-edit-btn{
+	border: solid 1px #dedede;
+	line-height: 25px; 
+}
+
+.input-section {
+	width: 620px;
+	height: 200px;
+	margin: auto;
+	
+}
+
+.input-box {
+	border: solid 2px gray;
+	border-radius: 10px;
+	width: 580px;
+	height: 200px;
+}
+.input-box-top {
+	font-size: 15px;
+	font-family: Verdana;
+}
+
+.box-file-input label{
+	display:inline-block;
+	border-radius: 10px;  
+	background-color: #DCDCDC;
+	color: #FFFFFF; 
+	padding: 0px 15px; 
+	line-height: 35px; 
+	cursor: pointer; 
+}
+.box-file-input label:after{
+	content:"파일찾기";
+}
+
+.box-file-input .file-input{
+	display:none; 
+}
+
+.share-btn {
+	border: solid 1px #dedede;
+	line-height: 25px; 
+	background-color: #FFFFFF; 
+}
+
+​
+

@@ -2,12 +2,10 @@
 
 #wrap {
 	width: 1200px;
-	height: 650px;
 	margin: auto;
 }
 
 section {
-	height: 700px;
 	font-family: "Gill Sans", sans-serif;
 	font-size: 14px;
 }
