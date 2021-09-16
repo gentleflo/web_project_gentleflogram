@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<section class="content d-flex justify-content-center align-items-center">
+		<section class="content d-flex justify-content-center align-items-center my-3">
 			
 			<div class="main-section d-flex mr-1">
 				<img src="/static/image/signin_main_img.jpg" alt="로그인 화면 메인 이미지" width="340px">
@@ -28,12 +28,12 @@
 					<div>
 						<h3 class="main-logo text-center mt-4"><b>gentleflogram</b></h3><br>
 						<form id="loginForm" class="mt-2">
-							<input type="text" class="input-style form-control" placeholder="아이디">
-							<input type="text" class="input-style form-control mt-2" placeholder="비밀번호">
+							<input type="text" class="input-style form-control" id="loginIdInput" placeholder="아이디">
+							<input type="password" class="input-style form-control mt-2" id="passwordInput" placeholder="비밀번호">
 							<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">로그인</button>
 						</form>
-						<div class="d-flex justify-content-center mt-3">
-							<hr class="w-50">또는<hr class="w-50">
+						<div class="d-flex justify-content-center align-items-center mt-3">
+							<hr class="col-3">또는<hr class="col-3">
 						</div>
 						<div class="d-flex justify-content-center align-items-center mt-2">
 							<img src="/static/image/facebook_icon.jpg" alt="페이스북 아이콘 이미지">
@@ -44,7 +44,7 @@
 				</div>
 				
 				<div class="signup-box d-flex justify-content-center align-items-center ml-4 mt-3">
-					<span class="mr-2">계정이 없으신가요?</span><a href="">가입하기</a>
+					<span class="mr-2">계정이 없으신가요?</span><a href="/user/signup_view">가입하기</a>
 				</div>	
 
 				<div class="d-flex justify-content-center ml-4 mt-3">
@@ -57,8 +57,45 @@
 				</div>
 			</div>
 		</section>
-		
+	
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#loginForm").on("submit", function(e){
+				
+				e.preventDefault();
+				
+				var loginId = $("#loginIdInput").val();
+				var password = $("#passwordInput").val();
+				
+				if(loginId == null || loginId == "") {
+					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				if(password == null || password =="") {
+					alert("비밀번호를 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/user/sign_in",
+					data:{"loginId":loginId, "password":password},
+					success:function(data) {
+						if(data.result == "success"){
+							alert("로그인되었습니다");
+						} else {
+							alert("아이디, 비밀번호를 확인해주세요");
+						}
+					}, error:function(e) {
+						alert("errror");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
