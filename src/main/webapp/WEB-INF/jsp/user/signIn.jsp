@@ -11,13 +11,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
-	<link rel="stylesheet" href="/static/css/style_gentleflogram.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/style_user.css" type="text/css">
 	
 	<title>gentleflogram_로그인</title>
 </head>
 <body>
 	<div id="wrap">
-		<section class="content d-flex justify-content-center align-items-center my-3">
+		<section class="d-flex justify-content-center align-items-center my-4">
 			
 			<div class="main-section d-flex mr-1">
 				<img src="/static/image/signin_main_img.jpg" alt="로그인 화면 메인 이미지" width="340px">

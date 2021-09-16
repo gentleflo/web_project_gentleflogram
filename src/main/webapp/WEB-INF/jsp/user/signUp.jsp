@@ -11,13 +11,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
-	<link rel="stylesheet" href="/static/css/style_gentleflogram.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/style_user.css" type="text/css">
 	
 	<title>gentleflogram_회원가입</title>
 </head>
 <body>
 	<div id="wrap">
-		<section class="content d-flex justify-content-center align-items-center my-3">
+		<section class="d-flex justify-content-center align-items-center my-4">
 			<div>
 				<div class="login-box d-flex justify-content-center align-items-center ml-4">
 					<div>
