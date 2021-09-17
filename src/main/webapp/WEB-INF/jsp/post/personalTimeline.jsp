@@ -51,7 +51,7 @@
 							</label>
 							<span class="filename text-secondary ml-1"><small>파일을 선택해 주세요</small></span>  
 						</div>
-						<button type="button" class="share-btn btn btn-sm mr-2 mb-3 mt-1">공유</button>					
+						<button type="button" id="shareBtn" class="share-btn btn btn-sm mr-2 mb-3 mt-1">공유</button>					
 					</div>
 				</div>
 			</div>
@@ -70,5 +70,47 @@
 			</div>
 		</section>
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			$("#shareBtn").on("click", function(){
+				var content = $("#contentInput").val().trim();
+				var file = $("#fileInput")[0].files[0];
+				
+				if(content == null || content == "") {
+					alert("내용을 입력하세요");
+					return;
+				}
+				
+				if(file.lenght == 0) {
+					alert("업로드할 사진을 선택하세요");
+					return;
+				}
+				
+				var formData = new FormData();  
+				formData.append("content", content);
+				formData.append("file", $("#fileInput")[0].files[0]); 
+				
+				$.ajax({
+					enctype:"multipart/form-data",
+					processData:false,  
+					contentType:false, 
+					type:"post",
+					url:"/post/create_post",
+					data:formData,
+					success:function(data) {
+						if(data.result == "success") {
+							alert("게시글 등록 완료");
+						} else {
+							alert("등록 실패");
+						}
+					}, error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	
+	</script>
 </body>
 </html>

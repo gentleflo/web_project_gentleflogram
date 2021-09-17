@@ -38,7 +38,7 @@ input::-webkit-input-placeholder{
 }
 
 .input-box {
-	border: solid 2px gray;
+	border: solid 2px rgb(148, 148, 148);
 	border-radius: 10px;
 	width: 580px;
 	height: 200px;
