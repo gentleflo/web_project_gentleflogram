@@ -13,4 +13,9 @@ public class PostController {
 		return "post/personalTimeline";
 	}
 	
+	@GetMapping("/timeline_view")
+	public String timeLineView() {
+		return "post/timeLine";
+	}
+	
 }

@@ -34,41 +34,31 @@ input::-webkit-input-placeholder{
 	width: 620px;
 	height: 200px;
 	margin: auto;
-	
 }
 
 .input-box {
 	border: solid 2px rgb(148, 148, 148);
 	border-radius: 10px;
 	width: 580px;
-	height: 200px;
+	height: 190px;
 }
 .input-box-top {
 	font-size: 15px;
 	font-family: Verdana;
 }
-
-.box-file-input label{
-	display:inline-block;
-	border-radius: 10px;  
-	background-color: #DCDCDC;
-	color: #FFFFFF; 
-	padding: 0px 15px; 
-	line-height: 35px; 
-	cursor: pointer; 
-}
-.box-file-input label:after{
-	content:"파일찾기";
-}
-
-.box-file-input .file-input{
-	display:none; 
+.image-upload-icon {
+	font-size: 23px;
+	color: #3F3F3F;
 }
 
 .share-btn {
 	border: solid 1px #dedede;
 	line-height: 25px; 
 	background-color: #FFFFFF; 
+}
+
+.timeline-section {
+	height: 400px;
 }
 
 ​

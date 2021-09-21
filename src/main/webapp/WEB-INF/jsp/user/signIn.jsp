@@ -86,7 +86,7 @@
 					data:{"loginId":loginId, "password":password},
 					success:function(data) {
 						if(data.result == "success"){
-							alert("로그인되었습니다");
+							location.href="/post/personalTimeline_view";
 						} else {
 							alert("아이디, 비밀번호를 확인해주세요");
 						}

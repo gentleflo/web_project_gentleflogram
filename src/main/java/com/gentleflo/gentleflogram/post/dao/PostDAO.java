@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 public interface PostDAO {
 	public int insertPost(
 			@Param("userId") int userId
+			, @Param("userName") String userName
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 }

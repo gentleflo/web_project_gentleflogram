@@ -9,12 +9,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.gentleflo.gentleflogram.post.bo.PostBO;
 
 @Controller
+@RequestMapping("/post")
 public class PostRestController {
 	@Autowired
 	private PostBO postBO;
@@ -26,10 +28,10 @@ public class PostRestController {
 			, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
-		session.getAttribute("userId");      //getAttribute의 리턴 타입은 Object임 그래서 타입을 맞추는 캐스팅이 필요
 		int userId = (Integer)session.getAttribute("userId");
+		String userName = (String)session.getAttribute("userName");
 		
-		int count = postBO.addPost(userId, content, file);
+		int count = postBO.addPost(userId, userName, content, file);
 		
 		Map<String, String> result = new HashMap<>();
 		
