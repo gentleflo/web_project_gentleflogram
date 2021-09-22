@@ -23,4 +23,20 @@
  			, now()
  		)
  	</insert>
+ 	
+ 	<select id="selectTimeLineList" resultType="com.gentleflo.gentleflogram.post.model.Post" parameterType="int">
+ 		SELECT 
+ 			`id`
+ 			, `userId`
+ 			, `userName`
+ 			, `content`
+ 			, `imagePath`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`post`
+ 		WHERE
+ 			`userId` = #{userId }
+ 		ORDER BY `id` DESC
+ 	</select>
  </mapper>

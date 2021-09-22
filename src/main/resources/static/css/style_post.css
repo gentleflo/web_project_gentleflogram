@@ -19,6 +19,50 @@ header {
 input::-webkit-input-placeholder{
   text-align:center;
 }
+.input-style {
+	background-color: #F9FBFC;
+}
+
+section {
+	width: 500px;
+}
+.timeLine-box {
+	border: solid 1.5px #8E8E8E;
+}
+.timeLine-box-profile {
+	height:30px;
+}
+.login-id {
+	font-size: 18px;
+}
+.delete-dots {
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+}
+.icon-fam {
+	font-size: 19px;
+	font-weight: bold;
+}
+.comment-style {
+	font-size: 15px;
+}
+
+aside {
+	width: 300px;
+}
+.top-of-aside {
+	height: 50px;
+}
+.comment-section {
+	height: 18px;
+}
+.comment-input {
+	background-color: transparent;
+    border: 0px solid;
+    height: 18px;
+    width: 150px;
+}
 
 .profile-section {
 	width: 500px;
@@ -59,6 +103,16 @@ input::-webkit-input-placeholder{
 
 .timeline-section {
 	height: 400px;
+}
+
+.personal-timeline-icon {
+	font-size: 24px;
+	color: #505050;
+}
+
+.header-right-top {
+	width: 170px;
+	height: 33px;
 }
 
 ​

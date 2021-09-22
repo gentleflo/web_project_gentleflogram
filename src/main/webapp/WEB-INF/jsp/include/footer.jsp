@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<footer class="d-flex justify-content-center align-items-center">
+<footer class="d-flex justify-content-center align-items-center mt-5">
 	<div class="input-group-prepend mr-3">
     	<button type="button" class="language btn btn-outline-secondary btn-sm">언어</button>
     	<button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -20,7 +20,7 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" /> 
 		
-		<section>
+		<div>
 			<div class="profile-section d-flex">
 				<img src="/static/image/main-profile.jpg" alt="메인 프로필 이미지" width="120px">
 				<div class="col-9 ml-2 mt-2">
@@ -65,7 +65,7 @@
 					<div class="content"></div>
 				</div>
 			</div>
-		</section>
+		</div>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
@@ -102,7 +102,7 @@
 					data:formData,
 					success:function(data) {
 						if(data.result == "success") {
-							location.reload();
+							location.href="/post/timeline_view";
 						} else {
 							alert("등록 실패");
 						}

@@ -1,7 +1,11 @@
 package com.gentleflo.gentleflogram.post.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import com.gentleflo.gentleflogram.post.model.Post;
 
 @Repository
 public interface PostDAO {
@@ -10,4 +14,6 @@ public interface PostDAO {
 			, @Param("userName") String userName
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
+	
+	public List<Post> selectTimeLineList(@Param("userId") int userId);
 }
