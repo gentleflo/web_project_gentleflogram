@@ -22,6 +22,9 @@ input::-webkit-input-placeholder{
 .input-style {
 	background-color: #F9FBFC;
 }
+.search-input {
+	background-color: #F9FBFC;
+}
 
 section {
 	width: 500px;
@@ -60,8 +63,6 @@ aside {
 .comment-input {
 	background-color: transparent;
     border: 0px solid;
-    height: 18px;
-    width: 150px;
 }
 
 .profile-section {

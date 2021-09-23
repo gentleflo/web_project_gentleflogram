@@ -29,9 +29,7 @@
 						<div class="d-flex align-items-center timeLine-box-profile">
 							<img src="/static/image/main-profile.jpg" alt="메인 프로필 이미지" width="32px" class="ml-1 mt-1">
 							<div class="login-id ml-2">
-								<c:if test="${not empty userLoginId}">
-									<div>${userLoginId }</div>
-								</c:if>
+								<div>${Post.loginId }</div>
 							</div>
 						</div>
 						<a href="#"><i class="bi bi-three-dots delete-dots mr-2"></i></a>
@@ -41,7 +39,7 @@
 					
 					<div class="d-flex justify-content-between ml-1 mr-1 mt-1">
 						<div class="icon-fam">
-							<i class="bi bi-heart mr-1"></i>
+							<a href="#" class="text-dark"><i class="bi bi-heart mr-1"></i></a>
 							<i class="bi bi-chat mr-1"></i>
 							<i class="bi bi-cursor"></i>
 						</div>
@@ -62,9 +60,9 @@
 					</div><hr>
 					
 					<div class="comment-section d-flex justify-content-between align-items-center mb-2">
-						<div class="mb-1">
+						<div class="mb-1 d-flex">
 							<i class="bi bi-emoji-smile icon-fam ml-2"></i>
-							<input type="text" placeholder="댓글 달기..." class="comment-input mb-2 ml-1">
+							<input type="text" placeholder="댓글 달기..." class="comment-input form-control mb-2 ml-1">
 						</div>
 						<a href="#" class="text-dark mr-1 mb-1"><small>게시</small></a>
 					</div>
