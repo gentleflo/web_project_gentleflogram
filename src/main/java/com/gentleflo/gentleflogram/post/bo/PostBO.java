@@ -15,12 +15,12 @@ public class PostBO {
 	@Autowired
 	private PostDAO postDAO;
 	
-	public int addPost(int userId, String userName, String content, MultipartFile file) {
+	public int addPost(int userId, String userLoginId, String content, MultipartFile file) {
 		String filePath = FileManagerService.saveFile(userId, file);
 		if(filePath == null) {
 			return -1;
 		}
-		return postDAO.insertPost(userId, userName, content, filePath);
+		return postDAO.insertPost(userId, userLoginId, content, filePath);
 	}
 	
 	public List<Post> getTimeLineList(int userId){

@@ -32,6 +32,7 @@ public class PostController {
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
+		String userLoginId = (String)session.getAttribute("userLoginId");
 		
 		List<Post> timeLineList = postBO.getTimeLineList(userId);
 		model.addAttribute("timeLineList", timeLineList);

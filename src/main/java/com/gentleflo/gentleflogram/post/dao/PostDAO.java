@@ -11,7 +11,7 @@ import com.gentleflo.gentleflogram.post.model.Post;
 public interface PostDAO {
 	public int insertPost(
 			@Param("userId") int userId
-			, @Param("userName") String userName
+			, @Param("userLoginId") String userLoginId
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	

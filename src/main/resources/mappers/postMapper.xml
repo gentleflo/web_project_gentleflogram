@@ -9,14 +9,14 @@
  			`post`
  		(
  			`userId`
- 			, `userName`
+ 			, `userLoginId`
  			, `content`
  			, `imagePath`
  			, `createdAt`
  			, `updatedAt`
  		) VALUES (
  			#{userId}
- 			, #{userName}
+ 			, #{userLoginId}
  			, #{content}
  			, #{imagePath}
  			, now()
@@ -28,7 +28,7 @@
  		SELECT 
  			`id`
  			, `userId`
- 			, `userName`
+ 			, `userLoginId`
  			, `content`
  			, `imagePath`
  			, `createdAt`
