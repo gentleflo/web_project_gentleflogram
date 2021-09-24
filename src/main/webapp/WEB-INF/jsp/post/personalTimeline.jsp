@@ -55,9 +55,9 @@
 				
 				
 			<div class="personal-timeline-section d-flex flex-wrap">
-				<div class="content my-2"></div>
-				<div class="content my-2"></div>
-				<div class="content my-2"></div>
+				<div class="content mr-2"></div>
+				<div class="content mr-2"></div>
+				
 			</div>
 		</div>
 		
