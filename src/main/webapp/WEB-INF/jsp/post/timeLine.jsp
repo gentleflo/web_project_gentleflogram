@@ -22,20 +22,21 @@
 		
 		<div class="d-flex justify-content-center">
 		<section>
-			<c:forEach var="Post" items="${timeLineList }">
+			<c:forEach var="post" items="${timeLineList }">  <!-- 가져오는 model의 형태가 list이기때문에 반복문으로 꺼내서 사용 -->
+			<!-- "" 사이에 들어가는 값은 서로 다른 환경에서 전달을 위한 약속을 위한 키라고 생각하면 좋다 -->
 			<div class="d-flex justify-content-center mb-3">
 				<div class="timeLine-box p-1 ml-2">
 					<div class="d-flex justify-content-between mb-2">
 						<div class="d-flex align-items-center timeLine-box-profile">
 							<img src="/static/image/main-profile.jpg" alt="메인 프로필 이미지" width="32px" class="ml-1 mt-1">
 							<div class="login-id ml-2">
-								<div>${Post.loginId }</div>
+								<div>${post.loginId }</div>
 							</div>
 						</div>
 						<a href="#"><i class="bi bi-three-dots delete-dots mr-2"></i></a>
 					</div>
 					
-					<img src="${Post.imagePath }" width="400px" alt="타임라인 이미지">
+					<img src="${post.imagePath }" width="400px" alt="타임라인 이미지">
 					
 					<div class="d-flex justify-content-between ml-1 mr-1 mt-1">
 						<div class="icon-fam">
@@ -49,22 +50,27 @@
 					
 					<div class="ml-1"><small><b>좋아요 11개</b></small></div>
 					
-					<div class="d-flex ml-1">
-						<div>
-							<c:if test="${not empty userLoginId }"/>
-							<div class="comment-style">${userLoginId }</div>
-						</div>
-						<div class="ml-2">
-							<div><small>${Post.content }</small></div>
-						</div>
-					</div><hr>
+					<!-- 피드 게시글 -->
+					<div class="d-flex ml-1 align-items-center">
+						<div class="content-style">${post.loginId }</div>
+						<div class="ml-2"><small>${post.content }</small></div>
+					</div>
 					
+					<!-- 댓글 -->
+					<div class="d-flex ml-1">
+						<div class="mr-2 text-secondary"><small>댓글 쓴 아이디</small></div>
+						<div class="text-secondary"><small>댓글 내용</small></div>
+					</div>
+					
+					<hr>
+					<!-- 댓글 입력 -->
 					<div class="comment-section d-flex justify-content-between align-items-center mb-2">
 						<div class="mb-1 d-flex">
 							<i class="bi bi-emoji-smile icon-fam ml-2"></i>
-							<input type="text" placeholder="댓글 달기..." class="comment-input form-control mb-2 ml-1">
+							<input type="text" placeholder="댓글 달기..." id="commentInput-${post.id }" class="comment-input form-control ml-1">
 						</div>
-						<a href="#" class="text-dark mr-1 mb-1"><small>게시</small></a>
+						<a href="#" class="commentBtn text-dark mr-1 mb-1" data-post-id="${post.id }"><small>게시</small></a>
+						<!--data-post-id: 'data-'까지는 정해진 형태이고 그 뒤는 원하는 단어써서 정해주면 됨  -->
 					</div>
 				</div>
 			</div>
@@ -94,5 +100,33 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			$(".commentBtn").on("click", function(){
+				var postId = $(this).data("post-id"); // 클릭된 버튼 객체, 버튼 자체가 객체화된것
+				// postId, commentContent
+				// 대응되는 input의 value
+				// ex) postId = 5;
+				// "#commentInput-5" 가 됨
+				var commentContent = $("#commentInput-" + postId).val();
+				
+				$.ajax({
+					type:"post",
+					url:"/post/comment_create",
+					data:{"postId":postId, "commentContent":commentContent},
+					success:function(data){
+						if(data.result="success") {
+							alert("댓글이 등록되었습니다:)");
+						} else {
+							alert("댓글 등록 실패 ㅠㅠ");
+						}
+					}, error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

@@ -11,6 +11,10 @@ header {
 .main-logo {
 	font-family: cursive;
 }
+.header-right-top {
+	width: 170px;
+	height: 33px;
+}
 .top-menu {
 	width: 900px;
 	margin: auto;
@@ -47,7 +51,7 @@ section {
 	font-size: 19px;
 	font-weight: bold;
 }
-.comment-style {
+.content-style {
 	font-size: 15px;
 }
 
@@ -64,6 +68,11 @@ aside {
 	background-color: transparent;
     border: 0px solid;
 }
+
+
+
+
+
 
 .profile-section {
 	width: 500px;
@@ -102,19 +111,17 @@ aside {
 	background-color: #FFFFFF; 
 }
 
-.timeline-section {
-	height: 400px;
-}
-
 .personal-timeline-icon {
 	font-size: 24px;
 	color: #505050;
 }
 
-.header-right-top {
-	width: 170px;
-	height: 33px;
+.content {
+	width: 350px;
+	height: 350px;
+	background-color: #80ff80;
 }
+
 
 ​
 

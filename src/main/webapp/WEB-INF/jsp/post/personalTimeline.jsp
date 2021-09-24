@@ -54,16 +54,10 @@
 			</div>
 				
 				
-			<div class="timeline-section">
-				<nav></nav>
-				<div class="main-content d-flex flex-wrap">
-					<div class="content"></div>
-					<div class="content"></div>
-					<div class="content"></div>
-					<div class="content"></div>
-					<div class="content"></div>
-					<div class="content"></div>
-				</div>
+			<div class="personal-timeline-section d-flex flex-wrap">
+				<div class="content my-2"></div>
+				<div class="content my-2"></div>
+				<div class="content my-2"></div>
 			</div>
 		</div>
 		

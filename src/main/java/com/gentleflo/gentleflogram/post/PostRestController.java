@@ -34,7 +34,6 @@ public class PostRestController {
 		int count = postBO.addPost(userId, userLoginId, content, file);
 		
 		Map<String, String> result = new HashMap<>();
-		
 		if(count == 1) {
 			result.put("result", "success");
 		} else {
@@ -42,4 +41,30 @@ public class PostRestController {
 		}
 		return result;
 	}
+	
+	@PostMapping("/comment_create")
+	public Map<String, String> addComment(
+			@RequestParam("postId") String postId
+			, @RequestParam("commentContent") String CommentContent
+			, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		String loginId = (String)session.getAttribute("userLoginId");
+		
+		int count = postBO.addComment(userId, userId, loginId, CommentContent);
+		
+		Map<String, String> result = new HashMap<>();
+		if(count == 1) {
+			result.put("result", "success"); 
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
+	
+	
+	
+	
 }

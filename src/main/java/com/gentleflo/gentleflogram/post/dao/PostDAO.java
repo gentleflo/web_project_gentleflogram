@@ -15,5 +15,11 @@ public interface PostDAO {
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	
-	public List<Post> selectTimeLineList(@Param("userId") int userId);
+	public List<Post> selectTimeLineList();
+	
+	public int insertComment(
+			@Param("userId") int userId
+			, @Param("postId") int postId
+			, @Param("loginId") String loginId
+			, @Param("commentContent") String commentContent);
 }

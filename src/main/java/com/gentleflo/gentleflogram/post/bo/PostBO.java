@@ -23,7 +23,11 @@ public class PostBO {
 		return postDAO.insertPost(userId, userLoginId, content, filePath);
 	}
 	
-	public List<Post> getTimeLineList(int userId){
-		return postDAO.selectTimeLineList(userId);
+	public List<Post> getTimeLineList(){
+		return postDAO.selectTimeLineList();
+	}
+	
+	public int addComment(int userId, int postId, String loginId, String commentContent) {
+		return postDAO.insertComment(userId, postId, loginId, commentContent);
 	}
 }

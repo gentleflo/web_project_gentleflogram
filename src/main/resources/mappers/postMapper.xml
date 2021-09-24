@@ -9,7 +9,7 @@
  			`post`
  		(
  			`userId`
- 			, `userLoginId`
+ 			, `loginId`
  			, `content`
  			, `imagePath`
  			, `createdAt`
@@ -24,11 +24,11 @@
  		)
  	</insert>
  	
- 	<select id="selectTimeLineList" resultType="com.gentleflo.gentleflogram.post.model.Post" parameterType="int">
+ 	<select id="selectTimeLineList" resultType="com.gentleflo.gentleflogram.post.model.Post">
  		SELECT 
  			`id`
  			, `userId`
- 			, `userLoginId`
+ 			, `loginId`
  			, `content`
  			, `imagePath`
  			, `createdAt`
@@ -37,4 +37,24 @@
  			`post`
  		ORDER BY `id` DESC
  	</select>
+ 	
+ 	<insert id="insertComment" parameterType="map">
+ 		INSERT INTO
+ 			`comment`
+ 		(
+ 			`userId`
+ 			, `postId`
+ 			, `loginId`
+ 			, `commentContent`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		) VALUES (
+ 			#{userId }
+ 			, #{postId }
+ 			, #{loginId }
+ 			, #{commentContent }
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
  </mapper>
