@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gentleflo.gentleflogram.comment.bo.CommentBO;
 import com.gentleflo.gentleflogram.post.bo.PostBO;
 import com.gentleflo.gentleflogram.post.model.PostDetail;
 
@@ -17,8 +16,6 @@ import com.gentleflo.gentleflogram.post.model.PostDetail;
 public class PostController {
 	@Autowired
 	private PostBO postBO;
-	@Autowired
-	private CommentBO commentBO;
 	
 	@GetMapping("/personalTimeline_view")
 	public String personalTimelineView() {

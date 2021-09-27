@@ -30,13 +30,13 @@
 						<div class="d-flex align-items-center timeLine-box-profile">
 							<img src="/static/image/main-profile.jpg" alt="메인 프로필 이미지" width="32px" class="ml-1 mt-1">
 							<div class="login-id ml-2">
-								<div>${timeLineList.post.loginId }</div>
+								<div>${postDetail.post.loginId }</div>
 							</div>
 						</div>
 						<a href="#"><i class="bi bi-three-dots delete-dots mr-2"></i></a>
 					</div>
 					
-					<img src="${timeLineList.post.imagePath }" width="400px" alt="타임라인 이미지">
+					<img src="${postDetail.post.imagePath }" width="400px" alt="타임라인 이미지">
 					
 					<div class="d-flex justify-content-between ml-1 mr-1 mt-1">
 						<div class="icon-fam">
@@ -52,17 +52,15 @@
 					
 					<!-- 피드 게시글 -->
 					<div class="d-flex ml-1 align-items-center">
-						<div class="content-style">${timeLineList.post.loginId }</div>
-						<div class="ml-2"><small>${timeLineList.post.content }</small></div>
+						<div class="content-style">${postDetail.post.loginId }</div>
+						<div class="ml-2"><small>${postDetail.post.content }</small></div>
 					</div>
 					
 					<!-- 댓글 -->
-					<c:forEach var="timeLineList" items="${timeLineList }">
+					<c:forEach var="postDetail" items="${timeLineList }">
 						<div class="d-flex ml-1">
-							<c:if test="${timeLineList.post.postId eq timeLineList.post.id }" >
-								<div class="mr-2 text-secondary">${commentContent.loginId }</div>
-								<div class="text-secondary"><small>${commentContent.commentContent }</small></div>
-							</c:if>
+							<div class="mr-2 text-secondary">${postDetail.commentList.loginId }</div>
+							<div class="text-secondary"><small>${postDetail.commentList.commentContent }</small></div>
 						</div>
 					</c:forEach>
 					
@@ -71,9 +69,9 @@
 					<div class="comment-section d-flex justify-content-between align-items-center mb-2">
 						<div class="mb-1 d-flex">
 							<i class="bi bi-emoji-smile icon-fam ml-2"></i>
-							<input type="text" placeholder="댓글 달기..." id="commentInput-${timeLineList.post.id }" class="comment-input form-control ml-1">
+							<input type="text" placeholder="댓글 달기..." id="commentInput-${postDetail.post.id }" class="comment-input form-control ml-1">
 						</div>
-						<a href="#" class="commentBtn text-dark mr-1 mb-1" data-post-id="${timeLineList.post.id }"><small>게시</small></a>
+						<a href="#" class="commentBtn text-dark mr-1 mb-1" data-post-id="${postDetail.post.id }"><small>게시</small></a>
 						<!--data-post-id: 'data-'까지는 정해진 형태이고 그 뒤는 원하는 단어써서 정해주면 됨  -->
 					</div>
 				</div>

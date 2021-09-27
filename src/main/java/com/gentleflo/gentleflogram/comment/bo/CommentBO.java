@@ -18,10 +18,6 @@ public class CommentBO {
 		return commentDAO.insertComment(userId, postId, loginId, commentContent);
 	}
 	
-	/*public List<Comment> getComment(){
-		return commentDAO.selectComment();
-	}*/
-	
 	// postId에 해당하는 댓글 가져오기
 	public List<Comment> getCommentListById(int postId) {
 		return commentDAO.selectCommentListByPostId(postId);
