@@ -38,37 +38,4 @@
  		ORDER BY `id` DESC
  	</select>
  	
- 	<insert id="insertComment" parameterType="map">
- 		INSERT INTO
- 			`comment`
- 		(
- 			`userId`
- 			, `postId`
- 			, `loginId`
- 			, `commentContent`
- 			, `createdAt`
- 			, `updatedAt`
- 		) VALUES (
- 			#{userId }
- 			, #{postId }
- 			, #{loginId }
- 			, #{commentContent }
- 			, now()
- 			, now()
- 		)
- 	</insert>
- 	
- 	<select id="selectComment" resultType="com.gentleflo.gentleflogram.post.model.Comment">
- 		SELECT 
- 			`id`
- 			, `userId`
- 			, `postId`
- 			, `loginId`
- 			, `commentContent`
- 			, `createdAt`
- 			, `updatedAt`
- 		FROM 
- 			`comment`
- 		ORDER BY `id` DESC
- 	</select>
  </mapper>

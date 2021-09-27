@@ -1,4 +1,4 @@
-package com.gentleflo.gentleflogram.post.model;
+package com.gentleflo.gentleflogram.comment.model;
 
 import java.util.Date;
 
@@ -53,4 +53,5 @@ public class Comment {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
 }

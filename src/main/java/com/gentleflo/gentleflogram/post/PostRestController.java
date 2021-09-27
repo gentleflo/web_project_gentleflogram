@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.gentleflo.gentleflogram.comment.bo.CommentBO;
 import com.gentleflo.gentleflogram.post.bo.PostBO;
 
 @RestController
@@ -20,6 +21,8 @@ import com.gentleflo.gentleflogram.post.bo.PostBO;
 public class PostRestController {
 	@Autowired
 	private PostBO postBO;
+	@Autowired
+	private CommentBO commentBO;
 	
 	@PostMapping("/create_post")
 	public Map<String, String> createPost(
@@ -44,7 +47,7 @@ public class PostRestController {
 	
 	@PostMapping("/comment_create")
 	public Map<String, String> addComment(
-			@RequestParam("postId") String postId
+			@RequestParam("postId") int postId
 			, @RequestParam("commentContent") String commentContent
 			, HttpServletRequest request) {
 		
@@ -52,7 +55,7 @@ public class PostRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		String loginId = (String)session.getAttribute("userLoginId");
 		
-		int count = postBO.addComment(userId, userId, loginId, commentContent);
+		int count = commentBO.addComment(userId, postId, loginId, commentContent);
 		
 		Map<String, String> result = new HashMap<>();
 		if(count == 1) {

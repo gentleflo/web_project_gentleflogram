@@ -38,7 +38,7 @@
 				</div>
 			</div>
 				
-				
+			
 			<div class="input-section d-flex justify-content-center align-items-center my-2">
 				<div class="input-box">
 					<div class="input-box-top text-center my-1">새 게시물</div>
@@ -53,12 +53,13 @@
 				</div>
 			</div>
 				
-			
+			<!-- 타임라인 이미지 미리보기 섹션 -->
 			<div class="personal-timeline-section d-flex flex-wrap justify-content-center mt-5">
+				<div class="content mr-2">
+					<img src="" alt="개인타임라인 이미지 미리보기">
+				</div>
 				<div class="content mr-2"></div>
-				<div class="content mr-2"></div>
-				<div class="content mr-2"></div>
-				
+				<div class="content mr-2"></div>		
 			</div>
 		</div>
 		
@@ -107,7 +108,6 @@
 				});
 			});
 		});
-	
 	</script>
 </body>
 </html>
