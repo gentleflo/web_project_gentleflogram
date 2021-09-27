@@ -53,8 +53,9 @@
 				</div>
 			</div>
 				
-				
-			<div class="personal-timeline-section d-flex flex-wrap">
+			
+			<div class="personal-timeline-section d-flex flex-wrap justify-content-center mt-5">
+				<div class="content mr-2"></div>
 				<div class="content mr-2"></div>
 				<div class="content mr-2"></div>
 				

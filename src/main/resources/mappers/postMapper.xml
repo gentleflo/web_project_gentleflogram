@@ -57,4 +57,18 @@
  			, now()
  		)
  	</insert>
+ 	
+ 	<select id="selectComment" resultType="com.gentleflo.gentleflogram.post.model.Comment">
+ 		SELECT 
+ 			`id`
+ 			, `userId`
+ 			, `postId`
+ 			, `loginId`
+ 			, `commentContent`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`comment`
+ 		ORDER BY `id` DESC
+ 	</select>
  </mapper>

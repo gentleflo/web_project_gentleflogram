@@ -45,14 +45,14 @@ public class PostRestController {
 	@PostMapping("/comment_create")
 	public Map<String, String> addComment(
 			@RequestParam("postId") String postId
-			, @RequestParam("commentContent") String CommentContent
+			, @RequestParam("commentContent") String commentContent
 			, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		String loginId = (String)session.getAttribute("userLoginId");
 		
-		int count = postBO.addComment(userId, userId, loginId, CommentContent);
+		int count = postBO.addComment(userId, userId, loginId, commentContent);
 		
 		Map<String, String> result = new HashMap<>();
 		if(count == 1) {

@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.gentleflo.gentleflogram.common.FileManagerService;
 import com.gentleflo.gentleflogram.post.dao.PostDAO;
+import com.gentleflo.gentleflogram.post.model.Comment;
 import com.gentleflo.gentleflogram.post.model.Post;
 
 @Service
@@ -29,5 +30,9 @@ public class PostBO {
 	
 	public int addComment(int userId, int postId, String loginId, String commentContent) {
 		return postDAO.insertComment(userId, postId, loginId, commentContent);
+	}
+	
+	public List<Comment> getComment(){
+		return postDAO.selectComment();
 	}
 }

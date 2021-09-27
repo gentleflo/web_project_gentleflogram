@@ -58,8 +58,10 @@
 					
 					<!-- 댓글 -->
 					<div class="d-flex ml-1">
-						<div class="mr-2 text-secondary"><small>댓글 쓴 아이디</small></div>
-						<div class="text-secondary"><small>댓글 내용</small></div>
+						<c:forEach var="commentContent" items="${commentList }">
+							<div class="mr-2 text-secondary">${commentContent.loginId }</div>
+							<div class="text-secondary"><small>${commentContent.commentContent }</small></div>
+						</c:forEach>
 					</div>
 					
 					<hr>
@@ -80,16 +82,15 @@
 		<aside>
 			<div class="top-of-aside"></div>
 			<div class="d-flex">
-				<div>
-					<img src="/static/image/main-profile.jpg" alt="메인 프로필 이미지" width="44px" class="mt-2">
-				</div>
+				<img src="/static/image/main-profile.jpg" alt="메인 프로필 이미지" width="44px" class="mt-2">
 				<div class="ml-2">
-				<c:if test="${not empty userLoginId }">
-					<div>${userLoginId }</div>
-					<div class="text-secondary"><small>${userName }</small></div>
-				</c:if>
+					<c:if test="${not empty userLoginId }">
+						<div>${userLoginId }</div>
+						<div class="text-secondary"><small>${userName }</small></div>
+					</c:if>
 				</div>
 			</div>
+			
 			<div class="d-flex justify-content-between mt-3 mb-1">
 				<div><small>회원님을 위한 추천</small></div>
 				<div><small class="text-secondary">모두 보기</small></div>
@@ -111,6 +112,7 @@
 				// "#commentInput-5" 가 됨
 				var commentContent = $("#commentInput-" + postId).val();
 				
+
 				$.ajax({
 					type:"post",
 					url:"/post/comment_create",

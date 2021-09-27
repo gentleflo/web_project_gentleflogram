@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gentleflo.gentleflogram.post.bo.PostBO;
+import com.gentleflo.gentleflogram.post.model.Comment;
 import com.gentleflo.gentleflogram.post.model.Post;
 
 @Controller
@@ -27,6 +28,9 @@ public class PostController {
 			
 		List<Post> timeLineList = postBO.getTimeLineList();
 		model.addAttribute("timeLineList", timeLineList);
+		
+		List<Comment> commentList = postBO.getComment();
+		model.addAttribute("commentList", commentList);
 		
 		return "post/timeLine";
 	}

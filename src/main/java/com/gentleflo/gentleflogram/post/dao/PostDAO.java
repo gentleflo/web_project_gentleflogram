@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.gentleflo.gentleflogram.post.model.Comment;
 import com.gentleflo.gentleflogram.post.model.Post;
 
 @Repository
@@ -22,4 +23,6 @@ public interface PostDAO {
 			, @Param("postId") int postId
 			, @Param("loginId") String loginId
 			, @Param("commentContent") String commentContent);
+	
+	public List<Comment> selectComment();
 }
