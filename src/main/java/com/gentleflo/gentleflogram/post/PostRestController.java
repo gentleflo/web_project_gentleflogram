@@ -46,6 +46,8 @@ public class PostRestController {
 		return result;
 	}
 	
+	
+	// 댓글 등록
 	@PostMapping("/comment_create")
 	public Map<String, String> addComment(
 			@RequestParam("postId") int postId

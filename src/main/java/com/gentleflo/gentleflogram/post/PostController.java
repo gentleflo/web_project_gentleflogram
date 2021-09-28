@@ -21,12 +21,14 @@ public class PostController {
 	private PostBO postBO;
 	
 	
+	// 개인 피드 타임라인 view
 	@GetMapping("/personalTimeline_view")
 	public String personalTimelineView() {
 		return "post/personalTimeline";
 	}
 	
 	
+	// 여러 게시글이 보이는 공용 타임라인 view
 	@GetMapping("/timeline_view")
 	public String timeLineView(Model model,
 			HttpServletRequest request) {    // jsp에서는 model이라는 객체에 저장해서 사용할 수 있어~!

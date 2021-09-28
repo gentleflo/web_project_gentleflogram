@@ -28,4 +28,13 @@
  			AND `postId` = #{postId }
  	</select>
  	
+ 	<select id="selectLikeCountByPostId" resultType="int" parameterType="int">
+ 		SELECT
+ 			count(*)
+ 		FROM 
+ 			`like`
+ 		WHERE 
+ 			`postId` = #{postId }
+ 	</select>
+ 	
  </mapper>

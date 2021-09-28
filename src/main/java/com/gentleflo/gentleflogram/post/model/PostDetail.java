@@ -7,6 +7,7 @@ public class PostDetail {
 	private Post post;
 	private List<Comment> commentList;
 	private boolean like;
+	private int countLike;
 	
 	public Post getPost() {
 		return post;
@@ -26,8 +27,12 @@ public class PostDetail {
 	public void setLike(boolean like) {
 		this.like = like;
 	}
-	
-	
+	public int getCountLike() {
+		return countLike;
+	}
+	public void setCountLike(int countLike) {
+		this.countLike = countLike;
+	}
 	
 	
 }

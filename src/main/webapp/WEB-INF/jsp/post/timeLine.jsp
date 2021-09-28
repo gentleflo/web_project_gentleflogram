@@ -57,7 +57,7 @@
 					</div>
 					
 					<!-- 좋아요 갯수 보여주기 -->
-					<div class="ml-1"><small><b>좋아요 11개</b></small></div>
+					<div class="ml-1"><small><b>좋아요 ${postDetail.countLike }개</b></small></div>
 					
 					<!-- 피드 게시글 -->
 					<div class="d-flex ml-1 align-items-center">

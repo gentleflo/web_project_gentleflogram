@@ -24,6 +24,8 @@ public class PostBO {
 	@Autowired
 	private LikeBO likeBO;
 	
+	
+	// 게시글 올리기
 	public int addPost(int userId, String userLoginId, String content, MultipartFile file) {
 		String filePath = FileManagerService.saveFile(userId, file);
 		if(filePath == null) {
@@ -32,8 +34,12 @@ public class PostBO {
 		return postDAO.insertPost(userId, userLoginId, content, filePath);
 	}
 	
+	
+	// 타임라인에 게시글(post)리스트 DB에서 빼오고 
+	// 또 각 게시글(postId)에 맞는 댓글들도 각각 꼿아줌
+	// 좋아요 또한 userId와 postId를 통해 해당하는 게시글에 좋아요를 가지고 옴
+	// 이 세가지 기능을 하는 메소드를 한 클래스 안에 만들어서 묶어놓은 클래스가 postDetail
 	public List<PostDetail> getTimeLineList(int userId){
-		
 		List<Post> postList = postDAO.selectTimeLineList();
 		
 		List<PostDetail> postDetailList = new ArrayList<>();
@@ -44,6 +50,8 @@ public class PostBO {
 			List<Comment> commentList = commentBO.getCommentListById(post.getId());
 			// 해당하는 포스트의 좋아요 가져오기
 			int count = likeBO.getLikeListByUserIdPostId(userId, post.getId());
+			// 해당하는 포스트의 좋아요 갯수 가져오기
+			int likeCount = likeBO.getLikeCountByPostId(post.getId());
 			
 			// post와 댓글이 매칭
 			PostDetail postDetail = new PostDetail();
@@ -55,6 +63,8 @@ public class PostBO {
 			} else {
 				postDetail.setLike(false);
 			}
+			
+			postDetail.setCountLike(likeCount);
 			
 			postDetailList.add(postDetail);
 		}

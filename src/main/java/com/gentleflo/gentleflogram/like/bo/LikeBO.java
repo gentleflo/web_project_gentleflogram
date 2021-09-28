@@ -17,8 +17,13 @@ public class LikeBO {
 		return likeDAO.insertLike(userId, postId);
 	}
 	
-	// postId에 해당하는 좋아요 가져오기
+	// postId와 userId에 해당하는 좋아요 가져오기
 	public int getLikeListByUserIdPostId(int userId, int postId) {
 		return likeDAO.selectLikeListByUserIdPostId(userId, postId);
+	}
+	
+	// postId에 해당하는 좋아요 가져오기
+	public int getLikeCountByPostId(int postId) {
+		return likeDAO.selectLikeCountByPostId(postId);
 	}
 }
