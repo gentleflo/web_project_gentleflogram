@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.gentleflo.gentleflogram.comment.bo.CommentBO;
 import com.gentleflo.gentleflogram.comment.model.Comment;
 import com.gentleflo.gentleflogram.common.FileManagerService;
+import com.gentleflo.gentleflogram.like.bo.LikeBO;
 import com.gentleflo.gentleflogram.post.dao.PostDAO;
 import com.gentleflo.gentleflogram.post.model.Post;
 import com.gentleflo.gentleflogram.post.model.PostDetail;
@@ -20,6 +21,8 @@ public class PostBO {
 	private PostDAO postDAO;
 	@Autowired
 	private CommentBO commentBO;
+	@Autowired
+	private LikeBO likeBO;
 	
 	public int addPost(int userId, String userLoginId, String content, MultipartFile file) {
 		String filePath = FileManagerService.saveFile(userId, file);
@@ -29,7 +32,7 @@ public class PostBO {
 		return postDAO.insertPost(userId, userLoginId, content, filePath);
 	}
 	
-	public List<PostDetail> getTimeLineList(){
+	public List<PostDetail> getTimeLineList(int userId){
 		
 		List<Post> postList = postDAO.selectTimeLineList();
 		
@@ -39,11 +42,19 @@ public class PostBO {
 		for(Post post : postList) {
 			// 해당하는 포스트의 댓글 가져오기
 			List<Comment> commentList = commentBO.getCommentListById(post.getId());
+			// 해당하는 포스트의 좋아요 가져오기
+			int count = likeBO.getLikeListByUserIdPostId(userId, post.getId());
 			
 			// post와 댓글이 매칭
 			PostDetail postDetail = new PostDetail();
 			postDetail.setPost(post);
 			postDetail.setCommentList(commentList);
+			
+			if(count == 1) {
+				postDetail.setLike(true);
+			} else {
+				postDetail.setLike(false);
+			}
 			
 			postDetailList.add(postDetail);
 		}

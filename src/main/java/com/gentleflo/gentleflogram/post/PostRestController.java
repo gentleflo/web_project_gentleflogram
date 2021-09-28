@@ -24,6 +24,7 @@ public class PostRestController {
 	@Autowired
 	private CommentBO commentBO;
 	
+	
 	@PostMapping("/create_post")
 	public Map<String, String> createPost(
 			@RequestParam("content") String content
@@ -63,11 +64,8 @@ public class PostRestController {
 		} else {
 			result.put("result", "fail");
 		}
-		
 		return result;
 	}
 	
-	
-	
-	
+
 }

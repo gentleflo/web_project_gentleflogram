@@ -40,7 +40,15 @@
 					
 					<div class="d-flex justify-content-between ml-1 mr-1 mt-1">
 						<div class="icon-fam">
-							<a href="#" class="text-dark"><i class="bi bi-heart mr-1"></i></a>
+							<!-- 좋아요! -->
+							<c:choose>
+								<c:when test="${postDetail.like }">
+									<a href="#" class="likeBtn text-danger" data-post-id="${postDetail.post.id }"><i class="bi bi-heart-fill mr-1"></i></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="likeBtn text-dark" data-post-id="${postDetail.post.id }"><i class="bi bi-heart mr-1"></i></a>
+								</c:otherwise>
+							</c:choose>
 							<i class="bi bi-chat mr-1"></i>
 							<i class="bi bi-cursor"></i>
 						</div>
@@ -48,6 +56,7 @@
 						<i class="bi bi-bookmark icon-fam ml-4"></i>
 					</div>
 					
+					<!-- 좋아요 갯수 보여주기 -->
 					<div class="ml-1"><small><b>좋아요 11개</b></small></div>
 					
 					<!-- 피드 게시글 -->
@@ -57,10 +66,10 @@
 					</div>
 					
 					<!-- 댓글 -->
-					<c:forEach var="postDetail" items="${timeLineList }">
+					<c:forEach var="comment" items="${postDetail.commentList }">
 						<div class="d-flex ml-1">
-							<div class="mr-2 text-secondary">${postDetail.commentList.loginId }</div>
-							<div class="text-secondary"><small>${postDetail.commentList.commentContent }</small></div>
+							<div class="mr-2 text-secondary">${comment.loginId }</div>
+							<div class="text-secondary"><small>${comment.commentContent }</small></div>
 						</div>
 					</c:forEach>
 					
@@ -106,6 +115,28 @@
 	
 	<script>
 		$(document).ready(function(){
+			$(".likeBtn").on("click",function(e){
+				e.preventDefault();
+				
+				var likePostId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/like",
+					data:{"postId":likePostId}, // 서버에서 미리 준비해놓은것- (LikeRestController에서 미리 셋팅해놓은것)
+					success:function(data){
+						if(data.result="success") {
+							location.reload();
+						} else {
+							alert("좋아요 등록이 실패하였습니다ㅠㅠ");
+						}
+					}, error:function(e) {
+						alert("error");
+					}
+				});
+			});
+			
+			
 			$(".commentBtn").on("click", function(e){
 				e.preventDefault();
 				
