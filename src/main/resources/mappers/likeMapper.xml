@@ -17,6 +17,13 @@
  			, now()
  		)
  	</insert>
+ 	<delete id="deleteLikeByUserIdPostId">
+ 		DELETE FROM
+ 			`like`
+ 		WHERE 
+ 			`userId` = #{userId }
+ 			AND `postId` = #{postId }
+ 	</delete>
  	
  	<select id="selectLikeListByUserIdPostId" resultType="int" parameterType="map">
  		SELECT 
@@ -36,5 +43,4 @@
  		WHERE 
  			`postId` = #{postId }
  	</select>
- 	
  </mapper>

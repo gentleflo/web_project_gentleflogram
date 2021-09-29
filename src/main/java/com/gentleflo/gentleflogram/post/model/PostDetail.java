@@ -6,7 +6,7 @@ import com.gentleflo.gentleflogram.comment.model.Comment;
 public class PostDetail {
 	private Post post;
 	private List<Comment> commentList;
-	private boolean like;
+	private boolean isLike;
 	private int countLike;
 	
 	public Post getPost() {
@@ -22,10 +22,10 @@ public class PostDetail {
 		this.commentList = commentList;
 	}
 	public boolean isLike() {
-		return like;
+		return isLike;
 	}
-	public void setLike(boolean like) {
-		this.like = like;
+	public void setLike(boolean isLike) {
+		this.isLike = isLike;
 	}
 	public int getCountLike() {
 		return countLike;
@@ -33,6 +33,5 @@ public class PostDetail {
 	public void setCountLike(int countLike) {
 		this.countLike = countLike;
 	}
-	
-	
+
 }

@@ -128,13 +128,36 @@
 						if(data.result="success") {
 							location.reload();
 						} else {
-							alert("좋아요 등록이 실패하였습니다ㅠㅠ");
+							alert("좋아요 등록이 실패하였습니다");
 						}
 					}, error:function(e) {
 						alert("error");
 					}
 				});
 			});
+			
+			
+			/* $(".unLikeBtn").on("click", function(){
+				e.preventDefault();
+				
+				var unLikePostId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/unlike",
+					data:{"postId":unLikePostId}, 
+					success:function(data){
+						if(data) {
+							location.reload();
+						} else {
+							alert("좋아요 취소를 실패하였습니다");
+						}
+					}, error:function(e) {
+						alert("error");
+					}
+				});
+			});*/
+			
 			
 			
 			$(".commentBtn").on("click", function(e){
