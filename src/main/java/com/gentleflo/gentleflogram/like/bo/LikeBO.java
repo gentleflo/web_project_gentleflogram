@@ -13,17 +13,38 @@ public class LikeBO {
 	@Autowired
 	private LikeDAO likeDAO;
 	
-	public int addLike(int userId, int postId) {
+	public boolean like(int userId, int postId) {
 		// 좋아요 상태이면 좋아요 취소
-		
-		// 좋아요 취소 상태이면 좋아요
-		
-		return likeDAO.insertLike(userId, postId);
+		if(this.getLikeListByUserIdPostId(userId, postId)) {
+			int count = likeDAO.deleteLikeByUserIdPostId(userId, postId);
+			if(count == 0) {
+				return false;
+			} else {
+				return true;
+			}
+		} else {   // 좋아요 취소 상태이면 좋아요
+			int count = likeDAO.insertLike(userId, postId);
+			if(count == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 	
+	// postId와 userId로 좋아요 여부 확인 후 삭제
+	public int deleteLike(int userId, int postId) {
+		return likeDAO.deleteLikeByUserIdPostId(userId, postId);
+	} 
+	
 	// postId와 userId로 좋아요 여부 확인
-	public int getLikeListByUserIdPostId(int userId, int postId) {
-		return likeDAO.selectLikeListByUserIdPostId(userId, postId);
+	public boolean getLikeListByUserIdPostId(int userId, int postId) {
+		int count =  likeDAO.selectLikeListByUserIdPostId(userId, postId);
+		if(count == 0) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
 	// postId에 해당하는 좋아요 갯수 가져오기
@@ -31,8 +52,4 @@ public class LikeBO {
 		return likeDAO.selectLikeCountByPostId(postId);
 	}
 	
-	// postId와 userId로 좋아요 여부 확인 후 삭제
-	public int deleteLike(int userId, int postId) {
-		return likeDAO.deleteLikeByUserIdPostId(userId, postId);
-	}
 }

@@ -49,22 +49,16 @@ public class PostBO {
 			// 해당하는 포스트의 댓글 가져오기
 			List<Comment> commentList = commentBO.getCommentListById(post.getId());
 			// 해당하는 포스트를 현재 로그인한 사용자가 좋아요 했는지 확인
-			int count = likeBO.getLikeListByUserIdPostId(userId, post.getId());
+			boolean isLike = likeBO.getLikeListByUserIdPostId(userId, post.getId());
 			// 해당하는 포스트의 좋아요 갯수 가져오기
 			int countLike = likeBO.getLikeCountByPostId(post.getId());
 			
-			// post와 댓글 매칭
 			PostDetail postDetail = new PostDetail();
+			// post와 댓글 매칭
 			postDetail.setPost(post);
 			postDetail.setCommentList(commentList);
-			
 			// 해당하는 포스트를 현재 로그인한 사용자가 좋아요 했는지 확인
-			if(count == 0) {
-				postDetail.setLike(false);
-			} else {
-				postDetail.setLike(true);
-			}
-			
+			postDetail.setLike(isLike);
 			// 해당하는 포스트의 좋아요 갯수 가져오기
 			postDetail.setCountLike(countLike);
 			
