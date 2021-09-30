@@ -69,18 +69,18 @@ public class PostBO {
 	
 	// BO에서는 BO만 호출해주는 것이 좋다. 다른 속성의 클래스를 호출할때는 (ex. PostBO 일때 PostDAO 가져오는 경우만-)
 	
-	public Post getPost(int postId, int userId) {
-		return postDAO.selectPost(postId, userId);
+	public Post getPost(int id, int userId) {
+		return postDAO.selectPost(id, userId);
 	}
 	
 	// post 삭제하기
-	public int deletePost(int postId, int userId) {
-		Post post = this.getPost(postId, userId);
+	public int deletePost(int id, int userId) {
+		Post post = this.getPost(id, userId);
 		if(post.getImagePath() != null) {
 			FileManagerService.removeFile(post.getImagePath());
 		}
-		commentBO.deleteComment(postId, userId);
-		likeBO.deleteLike(userId, postId);
-		return postDAO.deletePostByPostIdUserId(postId, userId);
+		//commentBO.deleteComment(postId, userId);
+		//likeBO.deleteLike(userId, postId);
+		return postDAO.deletePostByPostIdUserId(id, userId);
 	}
 }

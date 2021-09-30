@@ -143,7 +143,23 @@
 			$("#postDeleteBtn").on("click", function(e){
 				e.preventDefault();
 				
-				alert($(this).data("post-id"));
+				var deletePostId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/delete",
+					data:{"postId":deletePostId},
+					success:function(data){
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+					}, error:function(e){
+						alert("사용자가 등록한 게시물이 아닙니다");
+						location.reload();
+					}
+				});
 			});
 			
 			$(".likeBtn").on("click",function(e){

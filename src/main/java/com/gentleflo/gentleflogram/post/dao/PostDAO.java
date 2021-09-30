@@ -17,11 +17,11 @@ public interface PostDAO {
 	public List<Post> selectTimeLineList();
 	
 	public Post selectPost(
-			@Param("postId") int postId
-			,@Param("userId") int userId);
+			@Param("id") int id
+			, @Param("userId") int userId);
 	
 	public int deletePostByPostIdUserId(
-			@Param("postId") int postId
+			@Param("id") int id
 			, @Param("userId") int userId);
 	
 }

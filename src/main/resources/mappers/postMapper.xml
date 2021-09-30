@@ -50,7 +50,7 @@
  		FROM 
  			`post`
  		WHERE
- 			`postId` = #{postId }
+ 			`id` = #{id }
  			AND `userId` = #{userId }
  	</select>
  	
@@ -58,7 +58,7 @@
  		DELETE FROM
  			`post`
  		WHERE
- 			`postId` = #{postId }
+ 			`id` = #{id }
  			AND `userId` = #{userId }
  	</delete>
  </mapper>
