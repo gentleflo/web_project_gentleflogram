@@ -40,5 +40,13 @@
  			`postId` = #{postId }
  		ORDER BY `id` DESC
  	</select>
+ 	
+ 	<delete id="deleteCommentByPostIdUserId" parameterType="map">
+ 		DELETE FROM
+ 			`comment`
+ 		WHERE
+ 			`postId` = #{postId }
+ 			AND `userId` = #{userId }
+ 	</delete>
 
  </mapper>

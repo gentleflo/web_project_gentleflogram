@@ -22,5 +22,9 @@ public class CommentBO {
 	public List<Comment> getCommentListById(int postId) {
 		return commentDAO.selectCommentListByPostId(postId);
 	}
-
+	
+	// 댓글 지우기
+	public int deleteComment(int postId, int userId) {
+		return commentDAO.deleteCommentByPostIdUserId(postId, userId);
+	}
 }

@@ -33,14 +33,17 @@
 								<div>${postDetail.post.loginId }</div>
 							</div>
 						</div>
-						<a href="#"><i class="bi bi-three-dots delete-dots mr-2"></i></a>
+						<!-- 더보기(삭제)버튼 -->
+						<a href="#" data-toggle="modal" data-target="#deleteModal" class="moreBtn" data-post-id="${postDetail.post.id }">
+							<i class="bi bi-three-dots delete-dots mr-2"></i>
+						</a>
 					</div>
 					
 					<img src="${postDetail.post.imagePath }" width="400px" alt="타임라인 이미지">
 					
 					<div class="d-flex justify-content-between ml-1 mr-1 mt-1">
 						<div class="icon-fam">
-							<!-- 좋아요! -->
+							<!-- 좋아요 -->
 							<c:choose>
 								<c:when test="${postDetail.like }">
 									<a href="#" class="likeBtn text-danger" data-post-id="${postDetail.post.id }"><i class="bi bi-heart-fill mr-1"></i></a>
@@ -112,9 +115,37 @@
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	
+
+		<!-- Modal -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      
+		      <div class="modal-body text-center">
+		        <a href="#" class="text-dark" id="postDeleteBtn">삭제하기</a>
+		      </div>
+		   <!-- 더보기 버튼에 postId를 삽입-->
+		   <!-- 클릭 이벤트 잡아서 -->
+		    </div>
+		  </div>
+		</div>
+	
 	
 	<script>
-		$(document).ready(function(){
+		$(document).ready(function(e){
+			$(".moreBtn").on("click", function(e){
+				e.preventDefault();
+				
+				var postId = $(this).data("post-id");
+				$("#postDeleteBtn").data("post-id", postId);
+			});
+			
+			$("#postDeleteBtn").on("click", function(e){
+				e.preventDefault();
+				
+				alert($(this).data("post-id"));
+			});
+			
 			$(".likeBtn").on("click",function(e){
 				e.preventDefault();
 				
@@ -159,7 +190,6 @@
 			});*/
 			
 			
-			
 			$(".commentBtn").on("click", function(e){
 				e.preventDefault();
 				
@@ -185,6 +215,10 @@
 					}
 				});
 			});
+		
+		
+		
+		
 		});
 	</script>
 </body>

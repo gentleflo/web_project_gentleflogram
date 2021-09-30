@@ -38,4 +38,27 @@
  		ORDER BY `id` DESC
  	</select>
  	
+ 	<select id="selectPost" resultType="com.gentleflo.gentleflogram.post.model.Post" parameterType="map">
+ 		SELECT 
+ 			`id`
+ 			, `userId`
+ 			, `loginId`
+ 			, `content`
+ 			, `imagePath`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`post`
+ 		WHERE
+ 			`postId` = #{postId }
+ 			AND `userId` = #{userId }
+ 	</select>
+ 	
+ 	<delete id="deletePostByPostIdUserId" parameterType="map">
+ 		DELETE FROM
+ 			`post`
+ 		WHERE
+ 			`postId` = #{postId }
+ 			AND `userId` = #{userId }
+ 	</delete>
  </mapper>

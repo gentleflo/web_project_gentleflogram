@@ -46,7 +46,7 @@ public class PostBO {
 		
 		// 포스트 하나당 댓글 가져오기 
 		for(Post post : postList) {
-			// 해당하는 포스트의 댓글 가져오기
+			// 해당하는 포스트의 댓글 가져오기7
 			List<Comment> commentList = commentBO.getCommentListById(post.getId());
 			// 해당하는 포스트를 현재 로그인한 사용자가 좋아요 했는지 확인
 			boolean isLike = likeBO.getLikeListByUserIdPostId(userId, post.getId());
@@ -68,4 +68,19 @@ public class PostBO {
 	}
 	
 	// BO에서는 BO만 호출해주는 것이 좋다. 다른 속성의 클래스를 호출할때는 (ex. PostBO 일때 PostDAO 가져오는 경우만-)
+	
+	public Post getPost(int postId, int userId) {
+		return postDAO.selectPost(postId, userId);
+	}
+	
+	// post 삭제하기
+	public int deletePost(int postId, int userId) {
+		Post post = this.getPost(postId, userId);
+		if(post.getImagePath() != null) {
+			FileManagerService.removeFile(post.getImagePath());
+		}
+		commentBO.deleteComment(postId, userId);
+		likeBO.deleteLike(userId, postId);
+		return postDAO.deletePostByPostIdUserId(postId, userId);
+	}
 }
