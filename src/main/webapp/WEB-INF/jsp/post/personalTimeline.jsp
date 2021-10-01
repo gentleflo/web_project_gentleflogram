@@ -54,12 +54,14 @@
 			</div>
 				
 			<!-- 타임라인 이미지 미리보기 섹션 -->
-			<div class="personal-timeline-section d-flex flex-wrap justify-content-center mt-5">
-				<div class="content mr-2">
-					<img src="" alt="개인타임라인 이미지 미리보기">
+			<div class="d-flex justify-content-center">
+				<div class="personal-timeline-section d-flex flex-wrap mt-5">
+				<c:forEach var="imgPreview" items="${personalTimelineList }">
+					<div class="content mr-3 my-2">
+						<img src="${imgPreview.imagePath }" class="imgPreview" alt="개인타임라인 이미지 미리보기">
+					</div>
+				</c:forEach>
 				</div>
-				<div class="content mr-2"></div>
-				<div class="content mr-2"></div>		
 			</div>
 		</div>
 		

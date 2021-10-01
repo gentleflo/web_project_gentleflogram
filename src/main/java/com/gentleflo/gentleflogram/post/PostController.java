@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gentleflo.gentleflogram.post.bo.PostBO;
+import com.gentleflo.gentleflogram.post.model.Post;
 import com.gentleflo.gentleflogram.post.model.PostDetail;
 
 @Controller
@@ -23,7 +24,15 @@ public class PostController {
 	
 	// 개인 피드 타임라인 view
 	@GetMapping("/personalTimeline_view")
-	public String personalTimelineView() {
+	public String personalTimelineView(Model model
+			, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		List<Post> personalTimelineList = postBO.getPersonalTimelineList(userId);
+		model.addAttribute("personalTimelineList", personalTimelineList);
+		
 		return "post/personalTimeline";
 	}
 	

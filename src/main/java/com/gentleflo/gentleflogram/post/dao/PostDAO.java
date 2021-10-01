@@ -16,6 +16,8 @@ public interface PostDAO {
 	
 	public List<Post> selectTimeLineList();
 	
+	public List<Post> selectPersonalTimelineList(@Param("userId") int userId);
+	
 	public Post selectPost(
 			@Param("id") int id
 			, @Param("userId") int userId);

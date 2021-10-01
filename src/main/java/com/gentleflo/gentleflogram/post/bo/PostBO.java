@@ -39,6 +39,8 @@ public class PostBO {
 	// 또 각 게시글(postId)에 맞는 댓글들도 각각 꼿아줌
 	// 좋아요 또한 userId와 postId를 통해 해당하는 게시글에 좋아요를 가지고 옴
 	// 이 세가지 기능을 하는 메소드를 한 클래스 안에 만들어서 묶어놓은 클래스가 postDetail
+	
+	// BO에서는 BO만 호출해주는 것이 좋다. 다른 속성의 클래스를 호출할때는 (ex. PostBO 일때 PostDAO 가져오는 경우만-)
 	public List<PostDetail> getTimeLineList(int userId){
 		List<Post> postList = postDAO.selectTimeLineList();
 		
@@ -67,7 +69,11 @@ public class PostBO {
 		return postDetailList;
 	}
 	
-	// BO에서는 BO만 호출해주는 것이 좋다. 다른 속성의 클래스를 호출할때는 (ex. PostBO 일때 PostDAO 가져오는 경우만-)
+	// 개인 타임라인 보여주기
+	public List<Post> getPersonalTimelineList(int userId) {
+		return postDAO.selectPersonalTimelineList(userId);
+	}
+
 	
 	public Post getPost(int id, int userId) {
 		return postDAO.selectPost(id, userId);
@@ -79,8 +85,8 @@ public class PostBO {
 		if(post.getImagePath() != null) {
 			FileManagerService.removeFile(post.getImagePath());
 		}
-		//commentBO.deleteComment(postId, userId);
-		//likeBO.deleteLike(userId, postId);
+		commentBO.deleteComment(id);
+		likeBO.deleteLikeByPostId(id);
 		return postDAO.deletePostByPostIdUserId(id, userId);
 	}
 }

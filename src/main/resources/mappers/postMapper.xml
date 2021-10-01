@@ -38,6 +38,22 @@
  		ORDER BY `id` DESC
  	</select>
  	
+ 	<select id="selectPersonalTimelineList" resultType="com.gentleflo.gentleflogram.post.model.Post">
+ 		SELECT 
+ 			`id`
+ 			, `userId`
+ 			, `loginId`
+ 			, `content`
+ 			, `imagePath`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`post`
+ 		WHERE
+ 			`userId` = #{userId }
+ 		ORDER BY `id` DESC
+ 	</select>
+ 	
  	<select id="selectPost" resultType="com.gentleflo.gentleflogram.post.model.Post" parameterType="map">
  		SELECT 
  			`id`
