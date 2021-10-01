@@ -35,7 +35,9 @@
 						</div>
 						<!-- 더보기(삭제)버튼 -->
 						<a href="#" data-toggle="modal" data-target="#deleteModal" class="moreBtn" data-post-id="${postDetail.post.id }">
+						<c:if test="${postDetail.post.userId eq userId }">
 							<i class="bi bi-three-dots delete-dots mr-2"></i>
+						</c:if>
 						</a>
 					</div>
 					
@@ -136,8 +138,8 @@
 			$(".moreBtn").on("click", function(e){
 				e.preventDefault();
 				
-				var postId = $(this).data("post-id");
-				$("#postDeleteBtn").data("post-id", postId);
+				var postId = $(this).data("post-id");		 // 데이터를 꺼내오는 것
+				$("#postDeleteBtn").data("post-id", postId); // "#postDeleteBtn"를 객체화시켜 postId 데이터를 넣어주는 것
 			});
 			
 			$("#postDeleteBtn").on("click", function(e){

@@ -24,7 +24,7 @@ public class CommentBO {
 	}
 	
 	// 댓글 지우기
-	public int deleteComment(int postId, int userId) {
-		return commentDAO.deleteCommentByPostIdUserId(postId, userId);
+	public int deleteComment(int postId) {
+		return commentDAO.deleteCommentByPostId(postId);
 	}
 }

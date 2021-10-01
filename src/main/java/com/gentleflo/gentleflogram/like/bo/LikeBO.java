@@ -52,4 +52,9 @@ public class LikeBO {
 		return likeDAO.selectLikeCountByPostId(postId);
 	}
 	
+	// 게시글 아예 지울때 postId 기준으로만 삭제
+	public int deleteLikeByPostId(int postId) {
+		return likeDAO.deleteLikeByPostId(postId);
+	} 
+	
 }
