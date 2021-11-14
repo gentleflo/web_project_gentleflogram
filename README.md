@@ -25,6 +25,8 @@
 ### :movie_camera: 주요 기능 시연 데모    
   :one: 회원가입 / 로그인     
   ![user](gentleflogram_demo_gif/gentleflogram_signIn_signUp.gif)     
+  :two: 포스트 등록
+  ![edit](gentleflogram_demo_gif/gentleflogram_createPost.gif)   
  
     
 
