@@ -22,5 +22,28 @@
     <b>Database, URL 설계</b>        
     https://docs.google.com/spreadsheets/d/1JfFpGoAmIT_b1x0R8pY1DKgtvnpsQI_TubDRBrcHhkM/edit#gid=0
   
+### :movie_camera: 주요 기능 시연 데모    
+  :one: 회원가입 / 로그인     
+  ![user](gentleflogram_demo_gif/gentleflogram_signIn_signUp.gif)     
+ 
     
 
+
+### :heavy_check_mark: 외부 라이브러리 라이센스
+ > * Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)   
+ > * Mysql [GPLv2 or proprietary](https://www.gnu.org/licenses/gpl-3.0.html)   
+ > * Spring framework [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)     
+ > * Mybatis [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)    
+ > * Bootstrap [MIT License](https://opensource.org/licenses/MIT)    
+ > * jQuery [MIT License](https://opensource.org/licenses/MIT)             
+  
+       
+ ### :memo: 향후 계획
+ > * 보안 향상을 위해 spring security 구현    
+ > * 스티커 클릭 취소 이벤트    
+ > * 프로필 이미지 넣기 기능    
+ > * 공개 비공개 관련 기능    
+ > * preview 화면에 스티커 진행상황 보이기    
+ > * 칭찬리스트 내용 수정 기능    
+ > * 칭찬리스트 삭제 기능    
+ > * 댓글 삭제 기능    
