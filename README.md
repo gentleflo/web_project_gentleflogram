@@ -26,10 +26,12 @@
   :one: 회원가입 / 로그인     
   ![user](gentleflogram_demo_gif/gentleflogram_signIn_signUp.gif)     
   :two: 포스트 등록
-  ![edit](gentleflogram_demo_gif/gentleflogram_createPost.gif)   
- 
-    
-
+  ![create_post](gentleflogram_demo_gif/gentleflogram_createPost.gif)      
+  3️⃣: 포스트 삭제
+  ![delete_post](gentleflogram_demo_gif/gentleflogram_deletePost.gif)     
+  4️⃣: 좋아요 / 댓글 등록
+  ![post](gentleflogram_demo_gif/gentleflogram_like_comment.gif)     
+  
 
 ### :heavy_check_mark: 외부 라이브러리 라이센스
  > * Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)   
@@ -37,7 +39,8 @@
  > * Spring framework [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)     
  > * Mybatis [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)    
  > * Bootstrap [MIT License](https://opensource.org/licenses/MIT)    
- > * jQuery [MIT License](https://opensource.org/licenses/MIT)             
+ > * jQuery [MIT License](https://opensource.org/licenses/MIT)         
+ > * 이미지 출처 : [pixabay](https://pixabay.com/ko/)    
   
        
  ### :memo: 향후 계획
