@@ -41,14 +41,4 @@
  > * Bootstrap [MIT License](https://opensource.org/licenses/MIT)    
  > * jQuery [MIT License](https://opensource.org/licenses/MIT)         
  > * 이미지 출처 : [pixabay](https://pixabay.com/ko/)    
-  
-       
- ### :memo: 향후 계획
- > * 보안 향상을 위해 spring security 구현    
- > * 스티커 클릭 취소 이벤트    
- > * 프로필 이미지 넣기 기능    
- > * 공개 비공개 관련 기능    
- > * preview 화면에 스티커 진행상황 보이기    
- > * 칭찬리스트 내용 수정 기능    
- > * 칭찬리스트 삭제 기능    
- > * 댓글 삭제 기능    
+ 
